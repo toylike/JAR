@@ -123,8 +123,8 @@
 
             <section class="gallery">
                     <div class="gallery_body">
-                        <div class="gallery_card" name="0">
-                            <div class="gallery_card-elem" style="background-image: url(img/Video-img-1.png);" name="img/Video-img-1.png">
+                        <div class="gallery_card " name="0">
+                            <div class="gallery_card-elem gallery_card--left" id="0" data-item="0" style="background-image: url(img/Video-img-1.png);" name="img/Video-img-1.png">
                                 <div class="gallery_card--play">
                                     <img src="img/play-button.svg" alt="">
                                     <!-- <i class="eicon-play" aria-hidden="true"></i> -->
@@ -133,15 +133,15 @@
                         </div>
         
                         <div class="gallery_card" name="1">
-                            <div class="gallery_card-elem" style="background-image: url(img/Video-img-2.png);" name="img/Video-img-3.png">
+                            <div class="gallery_card-elem" style="background-image: url(img/Video-img-2.png);" id="1" data-item="1" name="img/Video-img-3.png">
                                 <div class="gallery_card--play">
                                     <img src="img/play-button.svg" alt="">
                                 </div>
                             </div>
                         </div>
         
-                        <div class="gallery_card" name="2">
-                            <div class="gallery_card-elem" style="background-image: url(img/Video-img-3.png);" name="img/Video-img-1.png">
+                        <div class="gallery_card" name="2" >
+                            <div class="gallery_card-elem gallery_card--right" id="2" data-item="2" style="background-image: url(img/Video-img-3.png);" name="img/Video-img-1.png">
                                 <div class="gallery_card--play">
                                     <img src="img/play-button.svg" alt="">
                                 </div>
@@ -149,7 +149,7 @@
                         </div>
         
                         <div class="gallery_card" name="3">
-                            <div class="gallery_card-elem" style="background-image: url(img/Video-img-4.png);" name="img/Video-img-3.png">
+                            <div class="gallery_card-elem" id="3" data-item="3" style="background-image: url(img/Video-img-4.png);" name="img/Video-img-3.png">
                                 <div class="gallery_card--play">
                                     <img src="img/play-button.svg" alt="">
                                 </div>
@@ -198,25 +198,38 @@
                 <div class="g_popup">
                     <div class="g_popup__wrappVideo" name="1">
                         <div>
-                            <iframe class="g_popup__wrappVideo--video" width="1000" height="600" src="https://www.youtube.com/embed/m42kiCuRepE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe> </div>
+                            <iframe class="g_popup__wrappVideo--video"  src="https://www.youtube.com/embed/m42kiCuRepE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe> </div>
                         </div>
                     <div class="g_popup__wrappVideo" name="2">
                         <div>
-                            <iframe class="g_popup__wrappVideo--video" width="1000" height="600" src="https://www.youtube.com/embed/7enTRGQq1H8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>
+                            <iframe class="g_popup__wrappVideo--video"  src="https://www.youtube.com/embed/7enTRGQq1H8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>
                         </div>
                     </div>
                     <div class="g_popup__wrappVideo" name="3">
                         <div>
-                            <iframe class="g_popup__wrappVideo--video" width="1000" height="600" src="https://www.youtube.com/embed/Zsrp7rpct3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>
+                            <iframe class="g_popup__wrappVideo--video"  src="https://www.youtube.com/embed/Zsrp7rpct3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>
                         </div>
                     </div>
                     <div class="g_popup__wrappVideo" name="4">
                         <div>
-                            <iframe class="g_popup__wrappVideo--video" width="1000" height="600" src="https://www.youtube.com/embed/5QNWNAQUzdI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>                       
+                            <iframe class="g_popup__wrappVideo--video" src="https://www.youtube.com/embed/5QNWNAQUzdI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>                       
                          </div>
                     </div>
                 </div> 
             </div>
+
+
+            <!-- <div id="player" style="width: 350px; height: 250px;">
+                <img src="img/Video-img-1.png" alt="" style="max-width: 100%;">
+            </div>
+
+            <div class="container_test">
+                <div class="transform_test  rotateY_test"><h4>rotateY(180deg)</h4></div>
+            </div> -->
+
+            <div class="container_test style-flat">    
+                <div class="flip" style="background-image: url(img/Video-img-4.png);"></div>
+              </div>
 
             <div class="footer">
                 <div class="footer__colms">

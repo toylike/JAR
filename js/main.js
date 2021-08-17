@@ -87,8 +87,7 @@ $('.g_popup').on('beforeChange', function(event, slick, currentSlide, nextSlide)
     if(checkPlayVideo === 0){
         stopVideo($('.g_popup .slick-current iframe'))
     }
-    
-});
+    });
 
 $('.g_popup').on('afterChange', function(event, slick, currentSlide, nextSlide) {
 
@@ -97,3 +96,54 @@ $('.g_popup').on('afterChange', function(event, slick, currentSlide, nextSlide) 
     }
     
 });
+
+
+$('.gallery_body').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+    
+    // console.log($(".slick-track").find(`[data-slick-index='${currentSlide}']`))
+    // let NextSlide = currentSlide + 1;
+    // let NextSlideTwo = currentSlide + 2;
+    // let NextSlideThree = currentSlide + 3;
+    
+        // $('#' + `${currentSlide}`).removeClass("gallery_card--left");
+        // $('#' + `${currentSlide + 1}`).addClass("gallery_card--left");
+        // $('#' + `${currentSlide + 2}`).removeClass("gallery_card--right");
+        // $('#' + `${currentSlide + 3}`).addClass("gallery_card--right");
+
+    //   let aaa = $(".gallery_card").find(`[data-item='${currentSlide}']`)
+    //     console.log(aaa)
+    if(currentSlide === 0){
+        $(".gallery_card").find(`[data-item='${currentSlide}']`).removeClass("gallery_card--left");
+        $(".gallery_card").find(`[data-item='${currentSlide + 1}']`).addClass("gallery_card--left");
+        $(".gallery_card").find(`[data-item='${currentSlide + 2}']`).removeClass("gallery_card--right");
+        $(".gallery_card").find(`[data-item='${currentSlide + 3}']`).addClass("gallery_card--right");
+    }else if(currentSlide === 1){
+        $(".gallery_card").find(`[data-item='${currentSlide}']`).removeClass("gallery_card--left");
+        $(".gallery_card").find(`[data-item='${currentSlide + 1}']`).addClass("gallery_card--left");
+        $(".gallery_card").find(`[data-item='${currentSlide + 2}']`).removeClass("gallery_card--right");
+        $(".gallery_card").find(`[data-item='${currentSlide - 1}']`).addClass("gallery_card--right");
+    }else if(currentSlide === 2){
+        $(".gallery_card").find(`[data-item='${currentSlide}']`).removeClass("gallery_card--left");
+        $(".gallery_card").find(`[data-item='${currentSlide + 1}']`).addClass("gallery_card--left");
+        $(".gallery_card").find(`[data-item='${currentSlide - 1}']`).removeClass("gallery_card--right");
+        $(".gallery_card").find(`[data-item='${currentSlide - 2}']`).addClass("gallery_card--right");
+    }else if(currentSlide === 3){
+        $(".gallery_card").find(`[data-item='${currentSlide}']`).removeClass("gallery_card--left");
+        $(".gallery_card").find(`[data-item='${currentSlide - 1}']`).addClass("gallery_card--left");
+        $(".gallery_card").find(`[data-item='${currentSlide - 3}']`).removeClass("gallery_card--right");
+        $(".gallery_card").find(`[data-item='${currentSlide - 2}']`).addClass("gallery_card--right");
+    }
+    
+    
+
+    // console.log($('#' + `${NextSlide}`))
+    // console.log($('#' + `${NextSlideTwo}`))
+    
+});
+
+// let offsetGalleryCardLeft = $('.gallery_card').offset().left;
+
+// let offsetGalleryLeft = $('.gallery').width();
+
+// console.log($('.gallery_card'))
+// console.log(offsetGalleryLeft/2)
