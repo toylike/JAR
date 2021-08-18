@@ -1,16 +1,5 @@
 $(function(){
 
-    $('.gallery_body').slick({
-        arrows: true,
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        speed: 700,
-        autoplay: false
-
-    })
-
     $('.g_popup').slick({
         infinite: true,
         slidesToShow: 1,
@@ -24,30 +13,63 @@ $(function(){
 
 })
 
+new Swiper(".mySwiper", {
+    effect: "coverflow",
+    slidesPerView: 3,
+    loop: true,
+    speed: 700,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    autoplay: {
+       delay: 4000,
+       stopOnLastSlide: false,
+       disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+      },
+    breakpoints: {
+        1027: {
+            slidesPerView: 3,
+        },
+
+        760: {
+            slidesPerView: 2,
+        },
+
+        100: {
+            slidesPerView: 1,
+        }
+    }
+  });
+
 let checkPlayVideo = 1
 
-const gallery_body = document.querySelector('.gallery_body');
+const gallery_body = document.querySelector('._gallery__body');
 
   gallery_body.addEventListener('click', event => {
     event.preventDefault();
 
-    if(event.target.closest('.gallery_card')){
+    if(event.target.closest('._gallery__card')){
 
         document.querySelector('.g_wrapp_popup').classList.remove('g_popup-hidden')
-        $('.g_popup').slick('slickGoTo', event.target.closest('.gallery_card').getAttribute('name'));
-        // console.log(event.target.closest('.gallery_card').getAttribute('name'))
-        // document.querySelector('.g_popup__numbering--elem').innerHTML = +event.target.closest('.gallery_card').getAttribute('name') + 1
-        // console.log($('.slick-current iframe').attr('src'))
+        $('.g_popup').slick('slickGoTo', event.target.closest('._gallery__card').getAttribute('name'));
         if(checkPlayVideo === 1){
             playVideo($('.g_popup .slick-current iframe'));
-
-            // checkPlayVideo = 0;
-            // console.log(checkPlayVideo)
         }
         setTimeout(function() {
             checkPlayVideo = 0;
         }, 1000);
-        // playVideo($('.g_popup .slick-current iframe'))
         
     }
   
@@ -60,8 +82,15 @@ const gallery_body = document.querySelector('.gallery_body');
         stopVideo($('.slick-current iframe'));
         document.querySelector('.g_wrapp_popup').classList.add('g_popup-hidden');
         checkPlayVideo = 1;
+
+        if($('.g_popup__tools--expand a i').hasClass('fa-compress')){
+            $('.g_wrapp_popup').removeClass('g_wrapp_popup--active')
+            $('.slick-current iframe').removeClass('g_popup__wrappVideo--video--active');
+            $('.g_popup__tools--expand a i').removeClass('fa-compress');
+            $('.g_popup__tools--expand a i').addClass('fa-expand');
+        }
         
-})
+    })
 
 
  $('.g_popup').on('afterChange', function(event, slick, currentSlide, nextSlide) {
@@ -72,78 +101,59 @@ const gallery_body = document.querySelector('.gallery_body');
 
 
 function playVideo(nextSlide){
-    let changeSrc = nextSlide.attr('src') + '?autoplay=1&';
+    let changeSrc = nextSlide.attr('src') + '&autoplay=1';
     nextSlide.attr('src', changeSrc);
 }
 
 function stopVideo(currentSlide){
     let arrSrc = currentSlide.attr('src').split('');
-    arrSrc.splice(-12)
+    arrSrc.splice(-11)
     currentSlide.attr('src', arrSrc.join(''));
     
 }
 
 $('.g_popup').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+    
     if(checkPlayVideo === 0){
         stopVideo($('.g_popup .slick-current iframe'))
     }
+
+    if(!$('.g_popup__tools--expand a i').hasClass('fa-expand')){
+        $('.slick-current iframe').removeClass('g_popup__wrappVideo--video--active');
+    }
+
     });
 
 $('.g_popup').on('afterChange', function(event, slick, currentSlide, nextSlide) {
-
+    
+    
     if(checkPlayVideo === 0){
         playVideo($('.g_popup .slick-current iframe'))
     }
-    
-});
 
-
-$('.gallery_body').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-    
-    // console.log($(".slick-track").find(`[data-slick-index='${currentSlide}']`))
-    // let NextSlide = currentSlide + 1;
-    // let NextSlideTwo = currentSlide + 2;
-    // let NextSlideThree = currentSlide + 3;
-    
-        // $('#' + `${currentSlide}`).removeClass("gallery_card--left");
-        // $('#' + `${currentSlide + 1}`).addClass("gallery_card--left");
-        // $('#' + `${currentSlide + 2}`).removeClass("gallery_card--right");
-        // $('#' + `${currentSlide + 3}`).addClass("gallery_card--right");
-
-    //   let aaa = $(".gallery_card").find(`[data-item='${currentSlide}']`)
-    //     console.log(aaa)
-    if(currentSlide === 0){
-        $(".gallery_card").find(`[data-item='${currentSlide}']`).removeClass("gallery_card--left");
-        $(".gallery_card").find(`[data-item='${currentSlide + 1}']`).addClass("gallery_card--left");
-        $(".gallery_card").find(`[data-item='${currentSlide + 2}']`).removeClass("gallery_card--right");
-        $(".gallery_card").find(`[data-item='${currentSlide + 3}']`).addClass("gallery_card--right");
-    }else if(currentSlide === 1){
-        $(".gallery_card").find(`[data-item='${currentSlide}']`).removeClass("gallery_card--left");
-        $(".gallery_card").find(`[data-item='${currentSlide + 1}']`).addClass("gallery_card--left");
-        $(".gallery_card").find(`[data-item='${currentSlide + 2}']`).removeClass("gallery_card--right");
-        $(".gallery_card").find(`[data-item='${currentSlide - 1}']`).addClass("gallery_card--right");
-    }else if(currentSlide === 2){
-        $(".gallery_card").find(`[data-item='${currentSlide}']`).removeClass("gallery_card--left");
-        $(".gallery_card").find(`[data-item='${currentSlide + 1}']`).addClass("gallery_card--left");
-        $(".gallery_card").find(`[data-item='${currentSlide - 1}']`).removeClass("gallery_card--right");
-        $(".gallery_card").find(`[data-item='${currentSlide - 2}']`).addClass("gallery_card--right");
-    }else if(currentSlide === 3){
-        $(".gallery_card").find(`[data-item='${currentSlide}']`).removeClass("gallery_card--left");
-        $(".gallery_card").find(`[data-item='${currentSlide - 1}']`).addClass("gallery_card--left");
-        $(".gallery_card").find(`[data-item='${currentSlide - 3}']`).removeClass("gallery_card--right");
-        $(".gallery_card").find(`[data-item='${currentSlide - 2}']`).addClass("gallery_card--right");
+    if(!$('.g_popup__tools--expand a i').hasClass('fa-expand')){
+        $('.slick-current iframe').addClass('g_popup__wrappVideo--video--active');
     }
     
-    
-
-    // console.log($('#' + `${NextSlide}`))
-    // console.log($('#' + `${NextSlideTwo}`))
-    
 });
 
-// let offsetGalleryCardLeft = $('.gallery_card').offset().left;
+$('.g_popup__tools--expand')
 
-// let offsetGalleryLeft = $('.gallery').width();
 
-// console.log($('.gallery_card'))
-// console.log(offsetGalleryLeft/2)
+$('.g_popup__tools--expand a').on('click', function (event) {
+    event.preventDefault();
+
+    if($('.g_popup__tools--expand a i').hasClass('fa-expand')){
+        $('.g_wrapp_popup').addClass('g_wrapp_popup--active')
+        $('.slick-current iframe').addClass('g_popup__wrappVideo--video--active')
+        $('.g_popup__tools--expand a i').removeClass('fa-expand');
+        $('.g_popup__tools--expand a i').addClass('fa-compress');
+    }else{
+        $('.g_wrapp_popup').removeClass('g_wrapp_popup--active')
+        $('.slick-current iframe').removeClass('g_popup__wrappVideo--video--active')
+        $('.g_popup__tools--expand a i').addClass('fa-expand');
+        $('.g_popup__tools--expand a i').removeClass('fa-compress');
+    }
+    
+})
+

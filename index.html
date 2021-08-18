@@ -6,6 +6,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale = 1.0">
 		<link rel="stylesheet" href="css/style.css"/>
         <!-- <link rel="stylesheet" href="css/ae7px.css"/>	 -->
+        <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- Demo styles -->
+    <style>
+      .swiper-container {
+        max-width: 1120px;
+        width: 100%;
+        padding-top: 80px;
+        padding-bottom: 70px;
+      }
+
+      .swiper-slide {
+        width: 370px;
+        height: 210px;
+      }
+    </style>
 		<title>JAR</title>
 	</head>
 	<body>
@@ -121,13 +140,12 @@
                 </div>
             </div>
 
-            <section class="gallery">
+            <!-- <section class="gallery">
                     <div class="gallery_body">
                         <div class="gallery_card " name="0">
                             <div class="gallery_card-elem gallery_card--left" id="0" data-item="0" style="background-image: url(img/Video-img-1.png);" name="img/Video-img-1.png">
                                 <div class="gallery_card--play">
                                     <img src="img/play-button.svg" alt="">
-                                    <!-- <i class="eicon-play" aria-hidden="true"></i> -->
                                 </div>
                             </div>
                         </div>
@@ -156,7 +174,7 @@
                             </div>
                         </div>
                     </div>        
-            </section>
+            </section> -->
 
 
             <div class="g_wrapp_popup g_popup-hidden">
@@ -197,39 +215,50 @@
                 </div>
                 <div class="g_popup">
                     <div class="g_popup__wrappVideo" name="1">
-                        <div>
-                            <iframe class="g_popup__wrappVideo--video"  src="https://www.youtube.com/embed/m42kiCuRepE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe> </div>
+                        <div>   
+                            <iframe class="g_popup__wrappVideo--video"  src="https://www.youtube.com/embed/m42kiCuRepE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe> </div>
                         </div>
+                        
                     <div class="g_popup__wrappVideo" name="2">
                         <div>
-                            <iframe class="g_popup__wrappVideo--video"  src="https://www.youtube.com/embed/7enTRGQq1H8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>
+                            <iframe class="g_popup__wrappVideo--video"  src="https://www.youtube.com/embed/7enTRGQq1H8?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>
                         </div>
                     </div>
                     <div class="g_popup__wrappVideo" name="3">
                         <div>
-                            <iframe class="g_popup__wrappVideo--video"  src="https://www.youtube.com/embed/Zsrp7rpct3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>
+                            <iframe class="g_popup__wrappVideo--video"  src="https://www.youtube.com/embed/Zsrp7rpct3M?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>
                         </div>
                     </div>
                     <div class="g_popup__wrappVideo" name="4">
                         <div>
-                            <iframe class="g_popup__wrappVideo--video" src="https://www.youtube.com/embed/5QNWNAQUzdI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>                       
+                            <iframe class="g_popup__wrappVideo--video" src="https://www.youtube.com/embed/5QNWNAQUzdI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay='1'></iframe>                       
                          </div>
                     </div>
                 </div> 
             </div>
 
-
-            <!-- <div id="player" style="width: 350px; height: 250px;">
-                <img src="img/Video-img-1.png" alt="" style="max-width: 100%;">
+            <div class="_gallery">
+                <div class="swiper-container mySwiper _gallery__body">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide _gallery__card" style="background-image: url(img/Video-img-1.png);" name="0">
+                        <img src="img/play-button.svg" alt="">
+                      </div>
+                      <div class="swiper-slide _gallery__card" style="background-image: url(img/Video-img-2.png);" name="1">
+                        <img src="img/play-button.svg" alt="">
+                      </div>
+                      <div class="swiper-slide _gallery__card" style="background-image: url(img/Video-img-3.png);" name="2">
+                        <img src="img/play-button.svg" alt="">
+                      </div>
+                      <div class="swiper-slide _gallery__card" style="background-image: url(img/Video-img-4.png);" name="3">
+                        <img src="img/play-button.svg" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </div>
-
-            <div class="container_test">
-                <div class="transform_test  rotateY_test"><h4>rotateY(180deg)</h4></div>
-            </div> -->
-
-            <div class="container_test style-flat">    
-                <div class="flip" style="background-image: url(img/Video-img-4.png);"></div>
-              </div>
+            
 
             <div class="footer">
                 <div class="footer__colms">
@@ -282,7 +311,7 @@
                     </div>
                 </div>
             </div>
-
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/d2573759d7.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="slick/slick/slick.css"/>
         <link rel="stylesheet" href="slick/slick/slick-theme.css"/>
